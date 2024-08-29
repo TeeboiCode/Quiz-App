@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teecode Quizzes</title>
+    <!-- sweetalert -->
+    <link rel="stylesheet" href="sweetalert2.min.css" />
+    <!-- font  -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- my css -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- loading -->
+      <div class="container">
+        <div class="preload">
+          <div class="loading-container">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- start button -->
+      <div class="btn-start hidden">
+        <button class="start-btn hidden" id="start_btn">Start Quiz</button>
+      </div>
+
+      <div class="quiz-rules hidden" id="quiz_rules">
+        <div class="card-top">
+          <h2 class="heading">Some Rules of this Quiz</h2>
+          <span class="hr-top"><hr /></span>
+        </div>
+        <div class="card-body">
+          <ol type="1">
+            <li>
+              You will have only <span class="sec">30 seconds</span> per each
+              question.
+            </li>
+            <li>Once you select your answer, it can't be undone.</li>
+            <li>You can't select any option ance time goes off.</li>
+            <li>You can't exit from the Quiz while you're playing.</li>
+            <li>You'll get points on the basis of your correct answers.</li>
+          </ol>
+        </div>
+        <div class="btn-group">
+          <span class="hr-down"><hr /></span>
+          <button class="btn btn-exit" id="exitBtn">Exit</button>
+          <button class="btn btn-continue">Quiz Continue</button>
+        </div>
+      </div>
+
+      <div class="quiz-card">
+        <div class="quiz-card-top"></div>
+        <div class="quiz-card-body"></div>
+      </div>
+    </div>
+
+    <!-- my js -->
+    <script src="script.js"></script>
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+  </body>
+</html>
