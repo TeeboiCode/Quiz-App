@@ -146,12 +146,8 @@ body {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.hidden {
-  display: none;
-}
-
 /* quiz-rules */
-.quiz-card,
+
 .quiz-rules {
   background: #fff;
   width: 80%;
@@ -246,8 +242,122 @@ body {
 /* ===== quiz-card =====*/
 
 .quiz-card {
+  background: #fff;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  overflow: hidden;
+  transition: all 1s ease !important;
 }
 
+.quiz-card-top {
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(50, 50, 93, 0.25);
+}
+
+.quiz-card-top {
+  padding: 1.2em 2.4em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quiz-card-top .heading {
+  font-weight: 700;
+}
+
+.quiz-card-top .left-time {
+  background: #cce6ff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #0a3967;
+  border: 1px solid #c6d8f0;
+}
+
+.tym {
+  background: #333740;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+
+.question-num,
+.quiz-card-body {
+  padding: 1.2em 2.4em;
+}
+
+.quiz-card .options {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.options .answer-option {
+  border: 1px solid #bdcdda;
+  background: #f1f8ff;
+  border-radius: 5px;
+  padding: 7px 9px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.question-num {
+  border-top: 1px solid #bfbfbf;
+}
+
+.question-num p {
+  font-weight: 600;
+  font-size: smaller;
+}
+
+.line-down {
+  background: #bfbfbf;
+  color: #bfbfbf;
+}
+
+.count-down-container {
+  background: #000000b6;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.count-down-text {
+  color: #fff;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.count-down-num {
+  color: #fff;
+  background: #000000;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 60px;
+}
+
+.hidden {
+  display: none;
+}
 /* memedia query */
 
 /* Small devices (landscape phones, 576px and up) */

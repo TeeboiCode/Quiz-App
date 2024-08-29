@@ -1,7 +1,12 @@
 let preload = document.querySelector(".preload");
 let startBtn = document.querySelector("#start_btn");
 let quizRulesCard = document.querySelector("#quiz_rules");
+let quizCard = document.querySelector("#quiz_card");
+let continueBtn = document.querySelector("#continueBtn");
 let exitBtn = document.querySelector("#exitBtn");
+const countdownText = document.getElementById("countdownText");
+const countdownNum = document.getElementById("countdownNum");
+const countdownContainer = document.querySelector(".count-down-container ");
 
 window.addEventListener("load", function () {
   this.setTimeout(() => {
@@ -38,3 +43,29 @@ exitBtn.addEventListener("click", function () {
     }
   });
 });
+
+continueBtn.addEventListener("click", startCountdown);
+
+function startCountdown() {
+  countdownContainer.classList.remove("hidden");
+
+  let countdown = 3;
+  countdownText.textContent = "Get ready... The game starts in ";
+  countdownNum.textContent = "3";
+
+  const interval = setInterval(() => {
+    if (countdown > 1) {
+      countdown--;
+      countdownText.textContent = `Get ready... The game starts in `;
+      countdownNum.textContent = countdown;
+    } else {
+      clearInterval(interval);
+      countdownText.textContent = "Go!";
+      countdownNum.classList.add("hidden");
+      const goInterval = setInterval(() => {
+        countdownContainer.classList.add("hidden");
+        quizCard.classList.remove("hidden");
+      }, 500);
+    }
+  }, 1000);
+}
