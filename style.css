@@ -221,6 +221,7 @@ body {
   color: #0a69ed;
 }
 
+.btn.btn-next,
 .btn.btn-continue {
   background: #0a69ed;
   color: #fff;
@@ -312,6 +313,8 @@ body {
 }
 .question-num {
   border-top: 1px solid #bfbfbf;
+  display: flex;
+  justify-content: space-between;
 }
 
 .question-num p {

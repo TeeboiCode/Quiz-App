@@ -73,23 +73,24 @@
         <div class="quiz-card-top">
           <h3 class="heading">Awesome Quiz Application</h3>
           <div class="left-time">
-            <p>Time Left <span class="tym">30</span></p>
+            <p>Time Left <span class="tym">5</span></p>
           </div>
         </div>
         <div class="quiz-card-body">
-          <h2 class="question">
-            Which is the most widely spoken language in the world?
+          <h2 class="question" id="question">
+            How can you detect the client's browser name in JavaScript?
           </h2>
           <div class="options">
-            <p class="answer-option">German</p>
-            <p class="answer-option">Mandarin</p>
-            <p class="answer-option">Spanish</p>
-            <p class="answer-option">English</p>
+            <p class="answer-option">navigator.appName</p>
+            <p class="answer-option">browser.name</p>
+            <p class="answer-option">client.browserName</p>
+            <p class="answer-option">window.browserName</p>
           </div>
         </div>
         <!-- <hr class="line-down" /> -->
         <div class="question-num">
           <p>1 of 100 Questions</p>
+          <button class="btn btn-next hidden" id="nextBtn">Next</button>
         </div>
       </div>
     </div>
