@@ -282,6 +282,10 @@ body {
   border: 1px solid #c6d8f0;
 }
 
+.left-time p {
+  white-space: nowrap;
+}
+
 .tym {
   background: #333740;
   color: #fff;
@@ -303,7 +307,7 @@ body {
   margin: 10px 0;
 }
 
-.options .answer-option {
+.answer-option {
   border: 1px solid #bdcdda;
   background: #f1f8ff;
   border-radius: 5px;
@@ -356,6 +360,16 @@ body {
   align-items: center;
   border-radius: 50%;
   font-size: 60px;
+}
+
+.success {
+  background: #d0ebd4;
+  color: #176c27;
+}
+
+.wrong {
+  background: #f5d1d4;
+  color: #7c2027;
 }
 
 .hidden {

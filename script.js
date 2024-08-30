@@ -9,6 +9,8 @@ const countdownText = document.getElementById("countdownText");
 const countdownNum = document.getElementById("countdownNum");
 const countdownContainer = document.querySelector(".count-down-container ");
 const countdownTime = document.querySelector(".tym");
+const optionAnswerBtn = document.querySelectorAll(".answer-option");
+let questions = document.querySelector("#question");
 
 let countingDown;
 
@@ -88,7 +90,7 @@ function startCountDown() {
     countdownTime.innerHTML = countingDown;
     if (countingDown === 0) {
       clearInterval(countingDownInterval);
-      nextBtn.classList.remove("hidden");
+      next();
     }
   }, 1000);
 }
@@ -179,29 +181,72 @@ const quizArray = [
 ];
 
 // Creating Questions
-// const optionAnswerBtn = document.querySelectorAll(".answer-option");
-// let questions = document.querySelector("#question");
-// let randomIndex = Math.floor(Math.random() * quizArray.length);
 
-// let i = 0;
+let randomQuestionIndex = Math.floor(Math.random() * quizArray.length);
 
-// let usedIndices = [];
+let usedIndices = [];
+let quizArraylength = quizArray.length;
 
-// while (i < quizArray.length) {
-//   if (!usedIndices.includes(randomIndex)) {
+let isEventDisabled = true;
 
+for (let i = 0; i < quizArraylength; i++) {
+  if (usedIndices.legnth === quizArraylength) {
+    alert("done");
+  } else if (usedIndices.includes(randomQuestionIndex)) {
+  } else {
+    questions.textContent = quizArray[randomQuestionIndex].question;
+    usedIndices.push(randomQuestionIndex);
+  }
+}
+
+let randomOptionIndex = [0, 1, 2, 3];
+
+randomOptionIndex.sort(() => Math.random() - 0.5);
+
+console.log(randomOptionIndex);
+
+optionAnswerBtn.forEach((btn, i) => {
+  btn.textContent =
+    quizArray[randomQuestionIndex].options[randomOptionIndex[i]];
+});
+
+optionAnswerBtn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (isEventDisabled) {
+      if (btn.textContent === quizArray[randomQuestionIndex].correct) {
+        correctAnswer();
+      } else {
+        correctAnswer();
+        btn.classList.add("wrong");
+      }
+      isEventDisabled = false;
+    }
+  });
+});
+
+function correctAnswer() {
+  optionAnswerBtn.forEach((btn) => {
+    if (btn.textContent === quizArray[randomQuestionIndex].correct) {
+      return btn.classList.add("success");
+    }
+    next()
+  });
+}
+
+console.log(usedIndices);
+
+function next() {
+  nextBtn.classList.remove("hidden");
+}
+
+// function checkingAnswer(e) {
+//   for (let i = 0; i < optionAnswerBtn.length; i++) {
+//     alert(optionAnswerBtn[e].textContent);
 //   }
 // }
 
-// while (i < quizArray.length) {
-//   if (!usedIndices.includes(randomIndex)) {
-//     question.textContent = quizArray[randomIndex].question;
-//     usedIndices.push(randomIndex);
-
-//     i++;
-//   }
-// }
-
-// for (let i = 0; i < optionAnswerBtn.length; i++) {
-//   optionAnswerBtn[i].addEventListener;
-// }
+// console.log(optionAnswerBtn[randomQuestionIndex].textContent);
+// console.log(quizArray[randomQuestionIndex].correct);
+// // if (optionAnswerBtn[i].textContent === quizArray[i].correct) {
+// //   console.log("correct");
+// // }
