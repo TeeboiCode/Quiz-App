@@ -9,8 +9,8 @@ const countdownText = document.getElementById("countdownText");
 const countdownNum = document.getElementById("countdownNum");
 const countdownContainer = document.querySelector(".count-down-container ");
 const countdownTime = document.querySelector(".tym");
-const optionAnswerBtn = document.querySelectorAll(".answer-option");
-let questions = document.querySelector("#question");
+// let optionAnswerBtn = document.querySelectorAll(".answer-option");
+// let questions = document.querySelector("#question");
 
 let countingDown;
 
@@ -22,6 +22,7 @@ window.addEventListener("load", function () {
     preload.classList.add("hidden");
     startBtn.classList.remove("hidden");
   }, 500);
+  displayQuestion();
 });
 
 startBtn.addEventListener("click", () => {
@@ -97,7 +98,7 @@ function startCountDown() {
 
 //Questions and Options array
 
-const quizArray = [
+const quizQuestions = [
   {
     id: 1,
     question: "Which of the following is a JavaScript data type?",
@@ -182,62 +183,114 @@ const quizArray = [
 
 // Creating Questions
 
-let randomQuestionIndex = Math.floor(Math.random() * quizArray.length);
+let randomQuestionIndex = Math.floor(Math.random() * quizQuestions.length);
+// let optionAnswerBtnNew = document.querySelectorAll(".answer-option");
+let currentQuestionIndex = randomQuestionIndex;
 
 let usedIndices = [];
-let quizArraylength = quizArray.length;
 
-let isEventDisabled = true;
-
-for (let i = 0; i < quizArraylength; i++) {
-  if (usedIndices.legnth === quizArraylength) {
-    alert("done");
-  } else if (usedIndices.includes(randomQuestionIndex)) {
-  } else {
-    questions.textContent = quizArray[randomQuestionIndex].question;
-    usedIndices.push(randomQuestionIndex);
-  }
-}
+let quizQuestionslength = quizQuestions.length;
 
 let randomOptionIndex = [0, 1, 2, 3];
 
 randomOptionIndex.sort(() => Math.random() - 0.5);
 
-console.log(randomOptionIndex);
-
-optionAnswerBtn.forEach((btn, i) => {
-  btn.textContent =
-    quizArray[randomQuestionIndex].options[randomOptionIndex[i]];
+randomOptionIndex.forEach((num) => {
+  num;
 });
 
-optionAnswerBtn.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    if (isEventDisabled) {
-      if (btn.textContent === quizArray[randomQuestionIndex].correct) {
-        correctAnswer();
-      } else {
-        correctAnswer();
-        btn.classList.add("wrong");
+function displayQuestion() {
+  let optionAnswerBtn = document.querySelector("#answer-option");
+  let questions = document.querySelector("#question");
+
+  const currentQuestion = quizQuestions[currentQuestionIndex];
+  questions.textContent = currentQuestion.question;
+  optionAnswerBtn.innerHTML = "";
+
+  let isEventDisabled = true;
+
+  currentQuestion.options.forEach((option, i) => {
+    const button = document.createElement("p");
+    button.textContent = option;
+    button.classList.add("answer-option");
+    optionAnswerBtn.appendChild(button);
+    button.textContent =
+      quizQuestions[randomQuestionIndex].options[randomOptionIndex[i]];
+
+    button.addEventListener("click", () => {
+      if (isEventDisabled) {
+        if (button.textContent === quizQuestions[randomQuestionIndex].correct) {
+          button.classList.add("success");
+          console.log(button);
+        } else {
+          correctAns();
+          button.classList.add("wrong");
+        }
+        isEventDisabled = false;
       }
-      isEventDisabled = false;
-    }
-  });
-});
+    });
 
-function correctAnswer() {
-  optionAnswerBtn.forEach((btn) => {
-    if (btn.textContent === quizArray[randomQuestionIndex].correct) {
-      return btn.classList.add("success");
-    }
-    next()
+    // button.addEventListener("click", () => {
+    //   if (isEventDisabled) {
+    //     if (button.textContent === quizQuestions[randomQuestionIndex].correct) {
+    //       correctAnswer();
+    //     } else {
+    //       correctAnswer();
+    //       button.classList.add("wrong");
+    //     }
+    //     isEventDisabled = false;
+    //   }
+    // });
   });
+
+  let optionAnswerBtnNew = document.querySelectorAll(".answer-option");
+
+  // ====================
+  // Correct Function
+  // ====================
+  function correctAns() {
+    optionAnswerBtnNew.forEach((btn) => {
+      if (btn.textContent === quizQuestions[randomQuestionIndex].correct) {
+        btn.classList.add("success");
+      }
+    });
+  }
 }
 
-console.log(usedIndices);
+// function loadNextQuestion() {
+//   randomQuestionIndex = Math.floor(Math.random() * quizQuestions.length);
+//   currentQuestionIndex = randomQuestionIndex;
 
-function next() {
-  nextBtn.classList.remove("hidden");
-}
+//   for (let i = 0; i < quizQuestionslength; i++) {
+//     if (!usedIndices.includes(randomQuestionIndex)) {
+//       displayQuestion();
+//       usedIndices.push(randomQuestionIndex);
+//       console.log(usedIndices);
+//     } else {
+//       alert("Quiz Completed!");
+//     }
+//   }
+// }
+
+// optionAnswerBtn.forEach((btn) => {
+//   btn.addEventListener("click", () => {
+//     if (isEventDisabled) {
+//       if (btn.textContent === quizArray[randomQuestionIndex].correct) {
+//         correctAnswer();
+//       } else {
+//         correctAnswer();
+//         btn.classList.add("wrong");
+//       }
+//       isEventDisabled = false;
+//     }
+//   });
+// });
+
+// console.log(usedIndices);
+
+// function next() {
+//   nextBtn.classList.remove("hidden");
+// }
 
 // function checkingAnswer(e) {
 //   for (let i = 0; i < optionAnswerBtn.length; i++) {
@@ -250,3 +303,8 @@ function next() {
 // // if (optionAnswerBtn[i].textContent === quizArray[i].correct) {
 // //   console.log("correct");
 // // }
+
+// optionAnswerBtn.forEach((btn, i) => {
+//   btn.textContent =
+//     quizQuestions[randomQuestionIndex].options[randomOptionIndex[i]];
+// });
