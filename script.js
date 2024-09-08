@@ -1,39 +1,79 @@
-let preload = document.querySelector(".preload");
-let startBtn = document.querySelector("#start_btn");
-let quizRulesCard = document.querySelector("#quiz_rules");
-let quizCard = document.querySelector("#quiz_card");
-let continueBtn = document.querySelector("#continueBtn");
-let nextBtn = document.querySelector("#nextBtn");
-let exitBtn = document.querySelector("#exitBtn");
-const countdownText = document.getElementById("countdownText");
-const countdownNum = document.getElementById("countdownNum");
+const preload = document.querySelector(".preload");
+const startBtn = document.querySelector("#start_btn");
+const quizRulesCard = document.querySelector("#quiz_rules");
+const continueBtn = document.querySelector("#continueBtn");
 const countdownContainer = document.querySelector(".count-down-container ");
-const countdownTime = document.querySelector(".tym");
-// let optionAnswerBtn = document.querySelectorAll(".answer-option");
-// let questions = document.querySelector("#question");
+const exitBtn = document.querySelector("#exitBtn");
+let quizCard = document.querySelector("#quiz_card");
+let countdownText = document.getElementById("countdownText");
+let countdownNum = document.getElementById("countdownNum");
+let countdownTime = document.querySelector(".tym");
+let questions = document.querySelector("#question");
+let optionAnswerBtn = document.querySelector("#answer-option");
+let complete = document.querySelector("#complete");
+let correctScore = document.querySelector(".correct-score");
+let totalQuestion = document.querySelector(".total-question");
+let totalQuestion2 = document.querySelector(".total-question2");
+let nextQuestion = document.querySelector(".next-question");
+let replayBtn = document.querySelector(".replay-btn");
+let quitBtn = document.querySelector(".quit-btn");
+let questionNextNum = document.querySelector(".questionNextNum");
 
-let countingDown;
+let isEventDisabled;
 
-// ================================================
-// ================================================
+// setting setTimeout for preloading
+stopLoad();
+function stopLoad() {
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      preload.classList.add("hidden");
+      startBtn.classList.remove("hidden");
+    }, 2000);
+  });
+}
 
-window.addEventListener("load", function () {
-  this.setTimeout(() => {
-    preload.classList.add("hidden");
-    startBtn.classList.remove("hidden");
-  }, 500);
-  displayQuestion();
-});
-
+// adding Event Listener to start btn
 startBtn.addEventListener("click", () => {
   startBtn.classList.add("hidden");
   preload.style.display = "flex";
-  this.setTimeout(() => {
+  setTimeout(() => {
     preload.classList.add("hidden");
     quizRulesCard.classList.remove("hidden");
-  }, 500);
+  }, 2000);
 });
 
+// Start Quiz
+
+continueBtn.addEventListener("click", continueGo);
+
+function continueGo() {
+  countdownContainer.classList.remove("hidden");
+  quizRulesCard.classList.add("hidden");
+
+  let countdown = 3;
+  countdownText.textContent = "Get ready... The game starts in ";
+  countdownNum.textContent = "3";
+
+  const interval = setInterval(() => {
+    if (countdown > 1) {
+      countdown--;
+      countdownText.textContent = `Get ready... The game starts in `;
+      countdownNum.textContent = countdown;
+    } else {
+      clearInterval(interval);
+      countdownText.textContent = "Go!";
+      countdownNum.classList.add("hidden");
+      countdownContainer.classList.add("hidden");
+      quizCard.classList.remove("hidden");
+      startCountDown();
+      //   const goInterval = setInterval(() => {
+
+      //   }, 500);
+    }
+  }, 1000);
+}
+
+// Exit Button
 exitBtn.addEventListener("click", function () {
   Swal.fire({
     title: "Are you sure you want to exit?",
@@ -55,48 +95,36 @@ exitBtn.addEventListener("click", function () {
   });
 });
 
-continueBtn.addEventListener("click", startCountdown);
-
-function startCountdown() {
-  countdownContainer.classList.remove("hidden");
-
-  let countdown = 3;
-  countdownText.textContent = "Get ready... The game starts in ";
-  countdownNum.textContent = "3";
-
-  const interval = setInterval(() => {
-    if (countdown > 1) {
-      countdown--;
-      countdownText.textContent = `Get ready... The game starts in `;
-      countdownNum.textContent = countdown;
-    } else {
-      clearInterval(interval);
-      countdownText.textContent = "Go!";
-      countdownNum.classList.add("hidden");
-      const goInterval = setInterval(() => {
-        countdownContainer.classList.add("hidden");
-        quizCard.classList.remove("hidden");
-        startCountDown();
-      }, 500);
-    }
-  }, 1000);
-}
-
+// Next question counting down
+let isClicked = false;
 function startCountDown() {
-  countingDown = 5;
+  countingDown = 9;
 
   countdownTime.innerHTML = countingDown;
+
   let countingDownInterval = setInterval(() => {
     countingDown--;
+    // console.log(countingDown);
+
     countdownTime.innerHTML = countingDown;
     if (countingDown === 0) {
+      // isClicked = false;
+      clearInterval(countingDownInterval);
+      load();
+      // next();
+      return;
+    } else if (isClicked) {
+      isClicked = false;
       clearInterval(countingDownInterval);
       next();
+      return;
     }
   }, 1000);
 }
 
+// =============================
 //Questions and Options array
+// =============================
 
 const quizQuestions = [
   {
@@ -182,129 +210,126 @@ const quizQuestions = [
 ];
 
 // Creating Questions
+let remainingQuestion = [...quizQuestions];
+// console.log(remainingQuestion);
 
-let randomQuestionIndex = Math.floor(Math.random() * quizQuestions.length);
-// let optionAnswerBtnNew = document.querySelectorAll(".answer-option");
-let currentQuestionIndex = randomQuestionIndex;
+let wrongPicked = 0;
+let correctPicked = 0;
+let askedQuestionIndex = [];
+totalQuestion2.textContent = quizQuestions.length;
 
-let usedIndices = [];
+function getRandomNumber() {
+  let randomIndex;
 
-let quizQuestionslength = quizQuestions.length;
+  do {
+    randomIndex = Math.floor(Math.random() * remainingQuestion.length);
+  } while (askedQuestionIndex.includes(randomIndex));
+  askedQuestionIndex.push(randomIndex);
 
-let randomOptionIndex = [0, 1, 2, 3];
+  return randomIndex;
+}
 
-randomOptionIndex.sort(() => Math.random() - 0.5);
-
-randomOptionIndex.forEach((num) => {
-  num;
-});
-
+displayQuestion();
 function displayQuestion() {
-  let optionAnswerBtn = document.querySelector("#answer-option");
-  let questions = document.querySelector("#question");
+  if (askedQuestionIndex.length === remainingQuestion.length) {
+    quizCard.classList.add("hidden");
+    preload.style.display = "flex";
+    setTimeout(() => {
+      preload.classList.add("hidden");
+      complete.classList.remove("hidden");
+    }, 3000);
+    const correctPercentage = (correctPicked / remainingQuestion.length) * 100;
+    correctScore.textContent = correctPicked;
+    totalQuestion.textContent = quizQuestions.length;
+    console.log("Complete!" + correctPercentage);
+    console.log("Wrong Anwers: " + wrongPicked);
+    console.log("Correct Answers: " + correctPicked);
+    return;
+  }
 
-  const currentQuestion = quizQuestions[currentQuestionIndex];
+  let randomOptionIndex = [0, 1, 2, 3];
+  randomOptionIndex.sort(() => Math.random() - 0.5);
+  randomOptionIndex.forEach((num) => {
+    num;
+  });
+
+  const currentQuestionIndex = getRandomNumber();
+  const currentQuestion = remainingQuestion[currentQuestionIndex];
   questions.textContent = currentQuestion.question;
   optionAnswerBtn.innerHTML = "";
-
-  let isEventDisabled = true;
 
   currentQuestion.options.forEach((option, i) => {
     const button = document.createElement("p");
     button.textContent = option;
     button.classList.add("answer-option");
     optionAnswerBtn.appendChild(button);
-    button.textContent =
-      quizQuestions[randomQuestionIndex].options[randomOptionIndex[i]];
+    button.textContent = currentQuestion.options[randomOptionIndex[i]];
+
+    isEventDisabled = true;
 
     button.addEventListener("click", () => {
       if (isEventDisabled) {
-        if (button.textContent === quizQuestions[randomQuestionIndex].correct) {
-          button.classList.add("success");
-          console.log(button);
+        if (button.textContent === currentQuestion.correct) {
+          correctAns();
+          correctPicked++;
         } else {
           correctAns();
+          wrongPicked++;
           button.classList.add("wrong");
         }
         isEventDisabled = false;
       }
     });
-
-    // button.addEventListener("click", () => {
-    //   if (isEventDisabled) {
-    //     if (button.textContent === quizQuestions[randomQuestionIndex].correct) {
-    //       correctAnswer();
-    //     } else {
-    //       correctAnswer();
-    //       button.classList.add("wrong");
-    //     }
-    //     isEventDisabled = false;
-    //   }
-    // });
   });
 
   let optionAnswerBtnNew = document.querySelectorAll(".answer-option");
-
   // ====================
   // Correct Function
   // ====================
   function correctAns() {
     optionAnswerBtnNew.forEach((btn) => {
-      if (btn.textContent === quizQuestions[randomQuestionIndex].correct) {
+      if (btn.textContent === currentQuestion.correct) {
         btn.classList.add("success");
       }
     });
+    isClicked = true;
   }
+
+  questionNextNum.textContent = `${askedQuestionIndex.length}. `;
+  nextQuestion.textContent = askedQuestionIndex.length;
+  console.log(askedQuestionIndex);
 }
 
-// function loadNextQuestion() {
-//   randomQuestionIndex = Math.floor(Math.random() * quizQuestions.length);
-//   currentQuestionIndex = randomQuestionIndex;
+function next() {
+  nextBtn.classList.remove("hidden");
+}
 
-//   for (let i = 0; i < quizQuestionslength; i++) {
-//     if (!usedIndices.includes(randomQuestionIndex)) {
-//       displayQuestion();
-//       usedIndices.push(randomQuestionIndex);
-//       console.log(usedIndices);
-//     } else {
-//       alert("Quiz Completed!");
-//     }
-//   }
-// }
+nextBtn.addEventListener("click", () => {
+  load();
+});
 
-// optionAnswerBtn.forEach((btn) => {
-//   btn.addEventListener("click", () => {
-//     if (isEventDisabled) {
-//       if (btn.textContent === quizArray[randomQuestionIndex].correct) {
-//         correctAnswer();
-//       } else {
-//         correctAnswer();
-//         btn.classList.add("wrong");
-//       }
-//       isEventDisabled = false;
-//     }
-//   });
-// });
+function load() {
+  displayQuestion();
+  startCountDown();
+}
 
-// console.log(usedIndices);
+replayBtn.addEventListener("click", () => {
+  // complete.classList.add("hidden");
+  window.location.reload();
+});
 
-// function next() {
-//   nextBtn.classList.remove("hidden");
-// }
-
-// function checkingAnswer(e) {
-//   for (let i = 0; i < optionAnswerBtn.length; i++) {
-//     alert(optionAnswerBtn[e].textContent);
-//   }
-// }
-
-// console.log(optionAnswerBtn[randomQuestionIndex].textContent);
-// console.log(quizArray[randomQuestionIndex].correct);
-// // if (optionAnswerBtn[i].textContent === quizArray[i].correct) {
-// //   console.log("correct");
-// // }
-
-// optionAnswerBtn.forEach((btn, i) => {
-//   btn.textContent =
-//     quizQuestions[randomQuestionIndex].options[randomOptionIndex[i]];
-// });
+// Quit Button
+quitBtn.addEventListener("click", function () {
+  Swal.fire({
+    title: "Are you sure you want to quit the game?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#0a69ed",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href = "";
+    }
+  });
+});
