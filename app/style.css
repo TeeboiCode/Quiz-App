@@ -334,6 +334,7 @@ body {
 
 .count-down-container {
   background: #000000b6;
+  padding: 30px;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -349,6 +350,7 @@ body {
   color: #fff;
   position: relative;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .count-down-num {

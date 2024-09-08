@@ -311,6 +311,7 @@ nextBtn.addEventListener("click", () => {
 function load() {
   displayQuestion();
   startCountDown();
+  nextBtn.classList.add("hidden");
 }
 
 replayBtn.addEventListener("click", () => {
@@ -329,7 +330,7 @@ quitBtn.addEventListener("click", function () {
     confirmButtonText: "Yes",
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "";
+      window.location.href = "../ttaJavaScript.html";
     }
   });
 });
