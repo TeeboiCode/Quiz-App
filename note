@@ -1,0 +1,82 @@
+const quizQuestions = [
+  {
+    id: 1,
+    question: "Which of the following is a JavaScript data type?",
+    options: ["String", "Element", "ArrayList", "Node"],
+    correct: "String",
+  },
+  {
+    id: 2,
+    question: "Which symbol is used for comments in JavaScript?",
+    options: ["//", "/*", "<!--", "#"],
+    correct: "//",
+  },
+  {
+    id: 3,
+    question: "Which method is used to convert a JSON string to an object?",
+    options: [
+      "JSON.stringify()",
+      "JSON.parse()",
+      "JSON.objectify()",
+      "JSON.convert()",
+    ],
+    correct: "JSON.parse()",
+  },
+  {
+    id: 4,
+    question: "Which method is used to add an element to the end of an array?",
+    options: ["push()", "pop()", "shift()", "unshift()"],
+    correct: "push()",
+  },
+  {
+    id: 5,
+    question: "How do you declare a JavaScript variable?",
+    options: [
+      "var myVariable;",
+      "variable myVariable;",
+      "v myVariable;",
+      "myVariable var;",
+    ],
+    correct: "var myVariable;",
+  },
+  {
+    id: 6,
+    question: "What does 'DOM' stand for in JavaScript?",
+    options: [
+      "Document Object Model",
+      "Data Object Management",
+      "Digital Object Model",
+      "Document Operation Mode",
+    ],
+    correct: "Document Object Model",
+  },
+  {
+    id: 7,
+    question: "Which operator is used to assign a value to a variable?",
+    options: ["=", "==", "===", "=>"],
+    correct: "=",
+  },
+  {
+    id: 8,
+    question: "Which of the following is not a reserved keyword in JavaScript?",
+    options: ["interface", "throws", "program", "let"],
+    correct: "program",
+  },
+  {
+    id: 9,
+    question: "How can you detect the client's browser name in JavaScript?",
+    options: [
+      "navigator.appName",
+      "browser.name",
+      "client.browserName",
+      "window.browserName",
+    ],
+    correct: "navigator.appName",
+  },
+  {
+    id: 10,
+    question: "Which built-in method sorts the elements of an array?",
+    options: ["sort()", "changeOrder(order)", "order()", "orderBy()"],
+    correct: "sort()",
+  },
+];
