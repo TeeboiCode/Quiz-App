@@ -18,11 +18,131 @@ let nextQuestion = document.querySelector(".next-question");
 let replayBtn = document.querySelector(".replay-btn");
 let quitBtn = document.querySelector(".quit-btn");
 let questionNextNum = document.querySelector(".questionNextNum");
+
 // form
 let userForm = document.querySelector("#userForm");
 let firstName = document.querySelector("#firstNameInput");
-let lastName = document.querySelector("#lastNameInput");
+let emailAddress = document.querySelector("#lastNameInput");
 let isEventDisabled;
+let filledForm = false;
+
+// form Schema
+let userData = [];
+let idCount = 1;
+// let firstNameValue = firstName.value;
+// let lastNavalidmeValue = lastName.value;
+let validName = false;
+let validEmail = false;
+let validForm = false;
+
+firstName.addEventListener("input", function() {
+  if (firstName.value === "") {
+    validName = false;
+  } else {
+    validName = true;
+  }
+})
+
+emailAddress.addEventListener("input", function() {
+  if (emailAddress.value === "") {
+    validEmail = false;
+  } else {
+    validEmail = true;
+  }
+})
+
+function validationForm() {
+  if(validName && validEmail) {
+    validForm = true;
+  } else {
+    if (!validName) {
+      firstName.focus()
+    } 
+    if (!validEmail) {
+      emailAddress.focus()
+    }
+    validForm = false;
+  }
+}
+// firstName.style.color = "red"
+
+
+// const userCorrectPercentage = (correctPicked / remainingQuestion.length) * 100;
+userForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  validationForm()
+  if(validForm) {
+    filledForm = true;
+    const userObject = {
+      id: idCount++,
+      firstName: firstName.value,
+      emailAddress: emailAddress.value,
+      // scores: `${userCorrectPercentage}%`,
+    };
+
+    postUserInput(userObject);
+
+    // Success message after form submission
+    document.getElementById('successMessage').style.display = "block";
+  }
+
+    
+    // console.log(firstName.value);
+    // console.log(lastName.value);
+
+    // userData.push(userObject);
+    // console.log(userData);
+    // next();
+});
+
+async function postUserInput(userInput) {
+  try {
+    const res = await fetch("http://localhost:3000/Users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(userInput)
+    });
+
+    if (!res.ok) {
+      throw new Error("Network res was not ok")
+    } else {
+      const data = await res.json();
+      
+      alert("Welcome Home")
+    }
+
+  } catch (error) {
+    console.log(`Error from postUserInput: ${error}`);
+    
+  }
+} 
+
+getUserInput()
+
+async function getUserInput() {
+  try {
+    const res = await fetch("http://localhost:3000/Users");
+
+    if (!res.ok) {
+      throw new Error("Network not ok");
+    } else {
+      const data = await res.json();
+      data.forEach((user)=> {
+        
+        console.log(firstName);
+        
+      })
+      console.log("Happy getting");
+    }
+
+  } catch (error) {
+    console.log(`Couldn't get input; ${error}`)
+  }
+}
+
+
 
 // setting setTimeout for preloading
 stopLoad();
@@ -2339,29 +2459,3 @@ quitBtn.addEventListener("click", function () {
   });
 });
 
-// form
-let userData = [];
-let idCount = 1;
-let firstNameValue = firstName.value;
-let lastNameValue = lastName.value;
-
-const userCorrectPercentage = (correctPicked / remainingQuestion.length) * 100;
-userForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  if (firstName.value === "") {
-    alert("No");
-  } else {
-    const userObject = {
-      id: idCount++,
-      firstName: firstNameValue,
-      lastName: lastNameValue,
-      scores: `${userCorrectPercentage}%`,
-    };
-    console.log(firstName.value);
-    console.log(lastName.value);
-
-    userData.push(userObject);
-    console.log(userData);
-  }
-});
