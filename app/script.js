@@ -1828,133 +1828,133 @@ function startCountDown() {
 // ];
 
 // Data Type
-// const quizQuestions = [
-//   {
-//     id: 1,
-//     question: "Which data type represents textual data in JavaScript?",
-//     options: ["String", "Number", "Boolean", "Undefined"],
-//     correct: "String",
-//   },
-//   {
-//     id: 2,
-//     question: "What is the result of the expression 'typeof 42'?",
-//     options: ["'number'", "'string'", "'boolean'", "'undefined'"],
-//     correct: "'number'",
-//   },
-//   {
-//     id: 3,
-//     question: "Which of the following represents a Boolean value?",
-//     options: ["true", "'false'", "'yes'", "'0'"],
-//     correct: "true",
-//   },
-//   {
-//     id: 4,
-//     question: "What is the default value of an uninitialized variable in JavaScript?",
-//     options: ["undefined", "null", "0", "NaN"],
-//     correct: "undefined",
-//   },
-//   {
-//     id: 5,
-//     question: "What is the result of the expression 'typeof null'?",
-//     options: ["'object'", "'null'", "'undefined'", "'boolean'"],
-//     correct: "'object'",
-//   },
-//   {
-//     id: 6,
-//     question: "Which method can be used to find the length of a string?",
-//     options: ["length", "size", "count", "getLength"],
-//     correct: "length",
-//   },
-//   {
-//     id: 7,
-//     question: "Which of the following is NOT a valid number in JavaScript?",
-//     options: ["42", "'42'", "NaN", "true"],
-//     correct: "true",
-//   },
-//   {
-//     id: 8,
-//     question: "What is the output of the following code: \n\n console.log(typeof NaN);",
-//     options: ["'number'", "'NaN'", "'undefined'", "'string'"],
-//     correct: "'number'",
-//   },
-//   {
-//     id: 9,
-//     question: "Which of the following is considered a falsy value in JavaScript?",
-//     options: ["0", "'false'", "'0'", "'null'"],
-//     correct: "0",
-//   },
-//   {
-//     id: 10,
-//     question: "Which of the following values represents 'no value' or 'nothing'?",
-//     options: ["null", "undefined", "NaN", "false"],
-//     correct: "null",
-//   },
-//   {
-//     id: 11,
-//     question: "What will be the output of 'console.log(typeof \"Hello\")'?",
-//     options: ["'string'", "'text'", "'String'", "'object'"],
-//     correct: "'string'",
-//   },
-//   {
-//     id: 12,
-//     question: "Which of the following values will 'typeof undefinedVariable' return?",
-//     options: ["'undefined'", "'null'", "'string'", "'NaN'"],
-//     correct: "'undefined'",
-//   },
-//   {
-//     id: 13,
-//     question: "What does 'NaN' stand for in JavaScript?",
-//     options: ["Not a Number", "Null and Number", "No Any Number", "None of the above"],
-//     correct: "Not a Number",
-//   },
-//   {
-//     id: 14,
-//     question: "What is the result of 'typeof true'?",
-//     options: ["'boolean'", "'true'", "'string'", "'number'"],
-//     correct: "'boolean'",
-//   },
-//   {
-//     id: 15,
-//     question: "What is the output of 'typeof 3.14'?",
-//     options: ["'number'", "'float'", "'decimal'", "'integer'"],
-//     correct: "'number'",
-//   },
-//   {
-//     id: 16,
-//     question: "Which value represents the absence of any object value?",
-//     options: ["null", "undefined", "0", "false"],
-//     correct: "null",
-//   },
-//   {
-//     id: 17,
-//     question: "What is the output of 'typeof \"42\"'?",
-//     options: ["'number'", "'string'", "'boolean'", "'undefined'"],
-//     correct: "'string'",
-//   },
-//   {
-//     id: 18,
-//     question: "Which of the following is a primitive data type in JavaScript?",
-//     options: ["String", "Number", "Boolean", "All of the above"],
-//     correct: "All of the above",
-//   },
-//   {
-//     id: 19,
-//     question: "Which of the following will result in 'NaN'?",
-//     options: [
-//       "'Hello' - 2",
-//       "'42' - 2",
-//       "'42' + 2",
-//       "42 * 2",
-//     ],
-//     correct: "'Hello' - 2",
-//   },
-//   {
-//     id: 20,
-//     question: "What will be the output of 'console.log(typeof undefined)'?",
-//     options: ["'undefined'", "'null'", "'object'", "'NaN'"],
-//     correct: "'undefined'",
-//   },
-// ];
+const quizQuestions = [
+  {
+    id: 1,
+    question: "Which data type represents textual data in JavaScript?",
+    options: ["String", "Number", "Boolean", "Undefined"],
+    correct: "String",
+  },
+  {
+    id: 2,
+    question: "What is the result of the expression 'typeof 42'?",
+    options: ["'number'", "'string'", "'boolean'", "'undefined'"],
+    correct: "'number'",
+  },
+  {
+    id: 3,
+    question: "Which of the following represents a Boolean value?",
+    options: ["true", "'false'", "'yes'", "'0'"],
+    correct: "true",
+  },
+  {
+    id: 4,
+    question: "What is the default value of an uninitialized variable in JavaScript?",
+    options: ["undefined", "null", "0", "NaN"],
+    correct: "undefined",
+  },
+  {
+    id: 5,
+    question: "What is the result of the expression 'typeof null'?",
+    options: ["'object'", "'null'", "'undefined'", "'boolean'"],
+    correct: "'object'",
+  },
+  {
+    id: 6,
+    question: "Which method can be used to find the length of a string?",
+    options: ["length", "size", "count", "getLength"],
+    correct: "length",
+  },
+  {
+    id: 7,
+    question: "Which of the following is NOT a valid number in JavaScript?",
+    options: ["42", "'42'", "NaN", "true"],
+    correct: "true",
+  },
+  {
+    id: 8,
+    question: "What is the output of the following code: \n\n console.log(typeof NaN);",
+    options: ["'number'", "'NaN'", "'undefined'", "'string'"],
+    correct: "'number'",
+  },
+  {
+    id: 9,
+    question: "Which of the following is considered a falsy value in JavaScript?",
+    options: ["0", "'false'", "'0'", "'null'"],
+    correct: "0",
+  },
+  {
+    id: 10,
+    question: "Which of the following values represents 'no value' or 'nothing'?",
+    options: ["null", "undefined", "NaN", "false"],
+    correct: "null",
+  },
+  {
+    id: 11,
+    question: "What will be the output of 'console.log(typeof \"Hello\")'?",
+    options: ["'string'", "'text'", "'String'", "'object'"],
+    correct: "'string'",
+  },
+  {
+    id: 12,
+    question: "Which of the following values will 'typeof undefinedVariable' return?",
+    options: ["'undefined'", "'null'", "'string'", "'NaN'"],
+    correct: "'undefined'",
+  },
+  {
+    id: 13,
+    question: "What does 'NaN' stand for in JavaScript?",
+    options: ["Not a Number", "Null and Number", "No Any Number", "None of the above"],
+    correct: "Not a Number",
+  },
+  {
+    id: 14,
+    question: "What is the result of 'typeof true'?",
+    options: ["'boolean'", "'true'", "'string'", "'number'"],
+    correct: "'boolean'",
+  },
+  {
+    id: 15,
+    question: "What is the output of 'typeof 3.14'?",
+    options: ["'number'", "'float'", "'decimal'", "'integer'"],
+    correct: "'number'",
+  },
+  {
+    id: 16,
+    question: "Which value represents the absence of any object value?",
+    options: ["null", "undefined", "0", "false"],
+    correct: "null",
+  },
+  {
+    id: 17,
+    question: "What is the output of 'typeof \"42\"'?",
+    options: ["'number'", "'string'", "'boolean'", "'undefined'"],
+    correct: "'string'",
+  },
+  {
+    id: 18,
+    question: "Which of the following is a primitive data type in JavaScript?",
+    options: ["String", "Number", "Boolean", "All of the above"],
+    correct: "All of the above",
+  },
+  {
+    id: 19,
+    question: "Which of the following will result in 'NaN'?",
+    options: [
+      "'Hello' - 2",
+      "'42' - 2",
+      "'42' + 2",
+      "42 * 2",
+    ],
+    correct: "'Hello' - 2",
+  },
+  {
+    id: 20,
+    question: "What will be the output of 'console.log(typeof undefined)'?",
+    options: ["'undefined'", "'null'", "'object'", "'NaN'"],
+    correct: "'undefined'",
+  },
+];
 
 //
 // const quizQuestions = [
@@ -2213,130 +2213,6 @@ function startCountDown() {
 //   },
 // ];
 
-// Creating Questions
-
-const quizQuestions = [
-  {
-    id: 1,
-    question: "What is the result of the following expression: \n\n 5 + 3 * 2?",
-    options: ["16", "11", "10", "13"],
-    correct: "11",
-  },
-  {
-    id: 2,
-    question: "What is the result of: \n\n (6 + 2) * (4 / 2)?",
-    options: ["12", "16", "8", "20"],
-    correct: "16",
-  },
-  {
-    id: 3,
-    question: "Solve the expression: \n\n 10 - 4 + 3 * 5",
-    options: ["21", "16", "25", "31"],
-    correct: "21",
-  },
-  {
-    id: 4,
-    question: "Evaluate the expression: \n\n 2 ** 3 + 4 * 2",
-    options: ["16", "20", "18", "14"],
-    correct: "16",
-  },
-  {
-    id: 5,
-    question: "What is the result of: \n\n 15 % 4 + 9 // 2?",
-    options: ["5", "4", "3", "7"],
-    correct: "7",
-  },
-  {
-    id: 6,
-    question: "Solve the following: \n\n 9 // 4 + 8 / 2?",
-    options: ["7.5", "6.0", "4.0", "8.5"],
-    correct: "6.0",
-  },
-  {
-    id: 7,
-    question: "Evaluate: \n\n (10 + 5) * 2 - 6?",
-    options: ["28", "30", "24", "32"],
-    correct: "24",
-  },
-  {
-    id: 8,
-    question: "What is the result of the expression: \n\n 25 // 4 - 3 * 2?",
-    options: ["3", "1", "2", "4"],
-    correct: "1",
-  },
-  {
-    id: 9,
-    question: "Solve: \n\n 7 + (4 * 5) - 9 // 3?",
-    options: ["23", "19", "25", "24"],
-    correct: "23",
-  },
-  {
-    id: 10,
-    question: "What is the value of: \n\n 8 / 2 + 6 * (2 + 1)?",
-    options: ["22", "20", "18", "26"],
-    correct: "22",
-  },
-  {
-    id: 11,
-    question: "Solve the following: \n\n 9 + 6 * 3 - 4?",
-    options: ["25", "29", "27", "23"],
-    correct: "23",
-  },
-  {
-    id: 12,
-    question: "Evaluate the expression: \n\n (12 % 5) + (18 // 3)?",
-    options: ["7", "9", "11", "8"],
-    correct: "9",
-  },
-  {
-    id: 13,
-    question: "What is the result of: \n\n 15 - (3 ** 2) + 10?",
-    options: ["19", "16", "18", "20"],
-    correct: "16",
-  },
-  {
-    id: 14,
-    question: "Solve the expression: \n\n (9 * 3) - 2 + (8 / 4)?",
-    options: ["25", "27", "28", "30"],
-    correct: "28",
-  },
-  {
-    id: 15,
-    question: "What is the result of: \n\n 24 // 5 * 3 - 4?",
-    options: ["10", "8", "12", "13"],
-    correct: "12",
-  },
-  {
-    id: 16,
-    question: "Evaluate the following: \n\n 14 + (8 % 3) * (4 + 1)?",
-    options: ["19", "22", "18", "24"],
-    correct: "19",
-  },
-  {
-    id: 17,
-    question: "What is the result of: \n\n 20 - 3 + (4 * 2)?",
-    options: ["25", "21", "28", "23"],
-    correct: "25",
-  },
-  {
-    id: 18,
-    question: "Solve the expression: \n\n 6 * 5 + 12 // 3 - 9?",
-    options: ["24", "23", "27", "29"],
-    correct: "27",
-  },
-  {
-    id: 19,
-    question: "Evaluate: \n\n (18 // 3) + (16 % 6) * 2?",
-    options: ["14", "16", "12", "10"],
-    correct: "16",
-  },
-  {
-    id: 20,
-    question: "What is the value of the expression: \n\n 5 ** 2 - 12 // 4 + 3?",
-    options: ["27", "23", "26", "29"],
-    correct: "26",
-  },
-];
 
 
 let remainingQuestion = [...quizQuestions];
