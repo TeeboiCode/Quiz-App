@@ -2077,6 +2077,264 @@ function startCountDown() {
 // ];
 
 //
+// const quizQuestions = [
+//   {
+//     id: 1,
+//     question: "What is the result of the following expression: \n\n 5 + 3 * 2?",
+//     options: ["16", "11", "10", "13"],
+//     correct: "11",
+//   },
+//   {
+//     id: 2,
+//     question:
+//       "Which operator is used to compare both value and type in JavaScript?",
+//     options: ["==", "===", "=", "!"],
+//     correct: "===",
+//   },
+//   {
+//     id: 3,
+//     question: "What is the output of: \n\n console.log(10 % 3);",
+//     options: ["0", "1", "2", "3"],
+//     correct: "1",
+//   },
+//   {
+//     id: 4,
+//     question:
+//       "Which of the following operators is used to assign a value to a variable?",
+//     options: ["==", "===", "=", "!="],
+//     correct: "=",
+//   },
+//   {
+//     id: 5,
+//     question:
+//       "What is the output of: \n\n if (5 > 3) { console.log('Hello'); } else { console.log('World'); }",
+//     options: ["Hello", "World", "Error", "Nothing"],
+//     correct: "Hello",
+//   },
+//   {
+//     id: 6,
+//     question: "Which of the following represents a logical AND operator?",
+//     options: ["&&", "||", "==", "&"],
+//     correct: "&&",
+//   },
+//   {
+//     id: 7,
+//     question: "What will be the result of: \n\n true && false?",
+//     options: ["true", "false", "undefined", "null"],
+//     correct: "false",
+//   },
+//   {
+//     id: 8,
+//     question: "What is the result of the following: \n\n 10 - '5';",
+//     options: ["5", "'5'", "NaN", "TypeError"],
+//     correct: "5",
+//   },
+//   {
+//     id: 9,
+//     question: "Which of the following is NOT a comparison operator?",
+//     options: ["==", "!=", "<=", "--"],
+//     correct: "--",
+//   },
+//   {
+//     id: 10,
+//     question:
+//       "What will be the output of: \n\n if (0) { console.log('True'); } else { console.log('False'); }",
+//     options: ["True", "False", "0", "undefined"],
+//     correct: "False",
+//   },
+//   {
+//     id: 11,
+//     question: "Which of the following represents a logical OR operator?",
+//     options: ["||", "&&", "==", "|"],
+//     correct: "||",
+//   },
+//   {
+//     id: 12,
+//     question: "What is the result of: \n\n '5' + 3?",
+//     options: ["8", "'53'", "NaN", "Error"],
+//     correct: "'53'",
+//   },
+//   {
+//     id: 13,
+//     question:
+//       "Which statement correctly increments the value of a variable 'x' by 1?",
+//     options: ["x++", "x--", "x + 1", "x += 2"],
+//     correct: "x++",
+//   },
+//   {
+//     id: 14,
+//     question: "What is the output of: \n\n console.log(3 > 2 && 2 > 1);",
+//     options: ["true", "false", "undefined", "null"],
+//     correct: "true",
+//   },
+//   {
+//     id: 15,
+//     question:
+//       "Which keyword is used to specify an alternative block of code if the 'if' condition is false?",
+//     options: ["else", "elseif", "or", "none"],
+//     correct: "else",
+//   },
+//   {
+//     id: 16,
+//     question: "What is the result of: \n\n true || false?",
+//     options: ["true", "false", "undefined", "null"],
+//     correct: "true",
+//   },
+//   {
+//     id: 17,
+//     question: "Which of the following expressions will evaluate to 'false'?",
+//     options: ["5 < 10", "10 == '10'", "5 >= 5", "5 === '5'"],
+//     correct: "5 === '5'",
+//   },
+//   {
+//     id: 18,
+//     question: "Which symbol is used for the NOT operation in JavaScript?",
+//     options: ["!", "!!", "||", "&&"],
+//     correct: "!",
+//   },
+//   {
+//     id: 19,
+//     question:
+//       "What is the output of: \n\n if ('5' === 5) { console.log('Equal'); } else { console.log('Not Equal'); }",
+//     options: ["Equal", "Not Equal", "5", "Error"],
+//     correct: "Not Equal",
+//   },
+//   {
+//     id: 20,
+//     question:
+//       "What is the result of the following code: \n\n console.log(2 ** 3);",
+//     options: ["8", "6", "9", "16"],
+//     correct: "8",
+//   },
+//   {
+//     id: 21,
+//     question: "What is the output of: \n\n 5 + '5';",
+//     options: ["10", "'55'", "NaN", "Error"],
+//     correct: "'55'",
+//   },
+//   {
+//     id: 22,
+//     question: "Which operator checks for both value and type equality?",
+//     options: ["==", "=", "===", "!=="],
+//     correct: "===",
+//   },
+//   {
+//     id: 23,
+//     question: "What is the result of: \n\n console.log(2 + 2 + '2');",
+//     options: ["6", "22", "'42'", "'22'"],
+//     correct: "'42'",
+//   },
+//   {
+//     id: 24,
+//     question:
+//       "What is the output of: \n\n if ('') { console.log('True'); } else { console.log('False'); }",
+//     options: ["True", "False", "Error", "undefined"],
+//     correct: "False",
+//   },
+//   {
+//     id: 25,
+//     question: "Which of the following is a ternary operator?",
+//     options: ["?", "&&", "||", "!"],
+//     correct: "?",
+//   },
+//   {
+//     id: 26,
+//     question: "What is the result of: \n\n console.log(typeof (5 > 3));",
+//     options: ["'boolean'", "'number'", "'string'", "'undefined'"],
+//     correct: "'boolean'",
+//   },
+//   {
+//     id: 27,
+//     question: "What is the output of: \n\n console.log(!true);",
+//     options: ["true", "false", "undefined", "null"],
+//     correct: "false",
+//   },
+//   {
+//     id: 28,
+//     question: "Which operator is used for exponentiation?",
+//     options: ["**", "^", "pow", "**="],
+//     correct: "**",
+//   },
+//   {
+//     id: 29,
+//     question: "What is the output of: \n\n console.log(10 >= 10);",
+//     options: ["true", "false", "undefined", "null"],
+//     correct: "true",
+//   },
+//   {
+//     id: 30,
+//     question: "Which of the following evaluates to true?",
+//     options: ["0", "null", "' '", "undefined"],
+//     correct: "' '",
+//   },
+//   {
+//     id: 31,
+//     question: "What will be the result of: \n\n 5 * '3';",
+//     options: ["15", "'15'", "Error", "NaN"],
+//     correct: "15",
+//   },
+//   {
+//     id: 32,
+//     question:
+//       "Which of the following is used to execute a block of code multiple times?",
+//     options: ["for", "if", "else", "break"],
+//     correct: "for",
+//   },
+//   {
+//     id: 33,
+//     question: "What will be the result of: \n\n '10' - 2;",
+//     options: ["8", "'102'", "NaN", "Error"],
+//     correct: "8",
+//   },
+//   {
+//     id: 34,
+//     question:
+//       "What is the output of: \n\n console.log(true || false && false);",
+//     options: ["true", "false", "Error", "undefined"],
+//     correct: "true",
+//   },
+//   {
+//     id: 35,
+//     question:
+//       "Which operator is used to check if two values are not equal in both value and type?",
+//     options: ["!==", "!=", "=", "=="],
+//     correct: "!==",
+//   },
+//   {
+//     id: 36,
+//     question:
+//       "What is the output of: \n\n if (NaN) { console.log('True'); } else { console.log('False'); }",
+//     options: ["True", "False", "NaN", "Error"],
+//     correct: "False",
+//   },
+//   {
+//     id: 37,
+//     question: "What is the output of: \n\n console.log('5' > 3);",
+//     options: ["true", "false", "Error", "undefined"],
+//     correct: "true",
+//   },
+//   {
+//     id: 38,
+//     question: "Which of the following operators checks for inequality?",
+//     options: ["!=", "==", "=", "==="],
+//     correct: "!=",
+//   },
+//   {
+//     id: 39,
+//     question: "What will be the output of: \n\n console.log(4 + 2 * 3);",
+//     options: ["10", "14", "18", "12"],
+//     correct: "10",
+//   },
+//   {
+//     id: 40,
+//     question: "What is the output of: \n\n console.log(1 || 0);",
+//     options: ["1", "0", "undefined", "null"],
+//     correct: "1",
+//   },
+// ];
+
+// Creating Questions
+
 const quizQuestions = [
   {
     id: 1,
@@ -2086,254 +2344,121 @@ const quizQuestions = [
   },
   {
     id: 2,
-    question:
-      "Which operator is used to compare both value and type in JavaScript?",
-    options: ["==", "===", "=", "!"],
-    correct: "===",
+    question: "What is the result of: \n\n (6 + 2) * (4 / 2)?",
+    options: ["12", "16", "8", "20"],
+    correct: "16",
   },
   {
     id: 3,
-    question: "What is the output of: \n\n console.log(10 % 3);",
-    options: ["0", "1", "2", "3"],
-    correct: "1",
+    question: "Solve the expression: \n\n 10 - 4 + 3 * 5",
+    options: ["21", "16", "25", "31"],
+    correct: "21",
   },
   {
     id: 4,
-    question:
-      "Which of the following operators is used to assign a value to a variable?",
-    options: ["==", "===", "=", "!="],
-    correct: "=",
+    question: "Evaluate the expression: \n\n 2 ** 3 + 4 * 2",
+    options: ["16", "20", "18", "14"],
+    correct: "16",
   },
   {
     id: 5,
-    question:
-      "What is the output of: \n\n if (5 > 3) { console.log('Hello'); } else { console.log('World'); }",
-    options: ["Hello", "World", "Error", "Nothing"],
-    correct: "Hello",
+    question: "What is the result of: \n\n 15 % 4 + 9 // 2?",
+    options: ["5", "4", "3", "7"],
+    correct: "7",
   },
   {
     id: 6,
-    question: "Which of the following represents a logical AND operator?",
-    options: ["&&", "||", "==", "&"],
-    correct: "&&",
+    question: "Solve the following: \n\n 9 // 4 + 8 / 2?",
+    options: ["7.5", "6.0", "4.0", "8.5"],
+    correct: "6.0",
   },
   {
     id: 7,
-    question: "What will be the result of: \n\n true && false?",
-    options: ["true", "false", "undefined", "null"],
-    correct: "false",
+    question: "Evaluate: \n\n (10 + 5) * 2 - 6?",
+    options: ["28", "30", "24", "32"],
+    correct: "24",
   },
   {
     id: 8,
-    question: "What is the result of the following: \n\n 10 - '5';",
-    options: ["5", "'5'", "NaN", "TypeError"],
-    correct: "5",
+    question: "What is the result of the expression: \n\n 25 // 4 - 3 * 2?",
+    options: ["3", "1", "2", "4"],
+    correct: "1",
   },
   {
     id: 9,
-    question: "Which of the following is NOT a comparison operator?",
-    options: ["==", "!=", "<=", "--"],
-    correct: "--",
+    question: "Solve: \n\n 7 + (4 * 5) - 9 // 3?",
+    options: ["23", "19", "25", "24"],
+    correct: "23",
   },
   {
     id: 10,
-    question:
-      "What will be the output of: \n\n if (0) { console.log('True'); } else { console.log('False'); }",
-    options: ["True", "False", "0", "undefined"],
-    correct: "False",
+    question: "What is the value of: \n\n 8 / 2 + 6 * (2 + 1)?",
+    options: ["22", "20", "18", "26"],
+    correct: "22",
   },
   {
     id: 11,
-    question: "Which of the following represents a logical OR operator?",
-    options: ["||", "&&", "==", "|"],
-    correct: "||",
+    question: "Solve the following: \n\n 9 + 6 * 3 - 4?",
+    options: ["25", "29", "27", "23"],
+    correct: "23",
   },
   {
     id: 12,
-    question: "What is the result of: \n\n '5' + 3?",
-    options: ["8", "'53'", "NaN", "Error"],
-    correct: "'53'",
+    question: "Evaluate the expression: \n\n (12 % 5) + (18 // 3)?",
+    options: ["7", "9", "11", "8"],
+    correct: "9",
   },
   {
     id: 13,
-    question:
-      "Which statement correctly increments the value of a variable 'x' by 1?",
-    options: ["x++", "x--", "x + 1", "x += 2"],
-    correct: "x++",
+    question: "What is the result of: \n\n 15 - (3 ** 2) + 10?",
+    options: ["19", "16", "18", "20"],
+    correct: "16",
   },
   {
     id: 14,
-    question: "What is the output of: \n\n console.log(3 > 2 && 2 > 1);",
-    options: ["true", "false", "undefined", "null"],
-    correct: "true",
+    question: "Solve the expression: \n\n (9 * 3) - 2 + (8 / 4)?",
+    options: ["25", "27", "28", "30"],
+    correct: "28",
   },
   {
     id: 15,
-    question:
-      "Which keyword is used to specify an alternative block of code if the 'if' condition is false?",
-    options: ["else", "elseif", "or", "none"],
-    correct: "else",
+    question: "What is the result of: \n\n 24 // 5 * 3 - 4?",
+    options: ["10", "8", "12", "13"],
+    correct: "12",
   },
   {
     id: 16,
-    question: "What is the result of: \n\n true || false?",
-    options: ["true", "false", "undefined", "null"],
-    correct: "true",
+    question: "Evaluate the following: \n\n 14 + (8 % 3) * (4 + 1)?",
+    options: ["19", "22", "18", "24"],
+    correct: "19",
   },
   {
     id: 17,
-    question: "Which of the following expressions will evaluate to 'false'?",
-    options: ["5 < 10", "10 == '10'", "5 >= 5", "5 === '5'"],
-    correct: "5 === '5'",
+    question: "What is the result of: \n\n 20 - 3 + (4 * 2)?",
+    options: ["25", "21", "28", "23"],
+    correct: "25",
   },
   {
     id: 18,
-    question: "Which symbol is used for the NOT operation in JavaScript?",
-    options: ["!", "!!", "||", "&&"],
-    correct: "!",
+    question: "Solve the expression: \n\n 6 * 5 + 12 // 3 - 9?",
+    options: ["24", "23", "27", "29"],
+    correct: "27",
   },
   {
     id: 19,
-    question:
-      "What is the output of: \n\n if ('5' === 5) { console.log('Equal'); } else { console.log('Not Equal'); }",
-    options: ["Equal", "Not Equal", "5", "Error"],
-    correct: "Not Equal",
+    question: "Evaluate: \n\n (18 // 3) + (16 % 6) * 2?",
+    options: ["14", "16", "12", "10"],
+    correct: "16",
   },
   {
     id: 20,
-    question:
-      "What is the result of the following code: \n\n console.log(2 ** 3);",
-    options: ["8", "6", "9", "16"],
-    correct: "8",
-  },
-  {
-    id: 21,
-    question: "What is the output of: \n\n 5 + '5';",
-    options: ["10", "'55'", "NaN", "Error"],
-    correct: "'55'",
-  },
-  {
-    id: 22,
-    question: "Which operator checks for both value and type equality?",
-    options: ["==", "=", "===", "!=="],
-    correct: "===",
-  },
-  {
-    id: 23,
-    question: "What is the result of: \n\n console.log(2 + 2 + '2');",
-    options: ["6", "22", "'42'", "'22'"],
-    correct: "'42'",
-  },
-  {
-    id: 24,
-    question:
-      "What is the output of: \n\n if ('') { console.log('True'); } else { console.log('False'); }",
-    options: ["True", "False", "Error", "undefined"],
-    correct: "False",
-  },
-  {
-    id: 25,
-    question: "Which of the following is a ternary operator?",
-    options: ["?", "&&", "||", "!"],
-    correct: "?",
-  },
-  {
-    id: 26,
-    question: "What is the result of: \n\n console.log(typeof (5 > 3));",
-    options: ["'boolean'", "'number'", "'string'", "'undefined'"],
-    correct: "'boolean'",
-  },
-  {
-    id: 27,
-    question: "What is the output of: \n\n console.log(!true);",
-    options: ["true", "false", "undefined", "null"],
-    correct: "false",
-  },
-  {
-    id: 28,
-    question: "Which operator is used for exponentiation?",
-    options: ["**", "^", "pow", "**="],
-    correct: "**",
-  },
-  {
-    id: 29,
-    question: "What is the output of: \n\n console.log(10 >= 10);",
-    options: ["true", "false", "undefined", "null"],
-    correct: "true",
-  },
-  {
-    id: 30,
-    question: "Which of the following evaluates to true?",
-    options: ["0", "null", "' '", "undefined"],
-    correct: "' '",
-  },
-  {
-    id: 31,
-    question: "What will be the result of: \n\n 5 * '3';",
-    options: ["15", "'15'", "Error", "NaN"],
-    correct: "15",
-  },
-  {
-    id: 32,
-    question:
-      "Which of the following is used to execute a block of code multiple times?",
-    options: ["for", "if", "else", "break"],
-    correct: "for",
-  },
-  {
-    id: 33,
-    question: "What will be the result of: \n\n '10' - 2;",
-    options: ["8", "'102'", "NaN", "Error"],
-    correct: "8",
-  },
-  {
-    id: 34,
-    question:
-      "What is the output of: \n\n console.log(true || false && false);",
-    options: ["true", "false", "Error", "undefined"],
-    correct: "true",
-  },
-  {
-    id: 35,
-    question:
-      "Which operator is used to check if two values are not equal in both value and type?",
-    options: ["!==", "!=", "=", "=="],
-    correct: "!==",
-  },
-  {
-    id: 36,
-    question:
-      "What is the output of: \n\n if (NaN) { console.log('True'); } else { console.log('False'); }",
-    options: ["True", "False", "NaN", "Error"],
-    correct: "False",
-  },
-  {
-    id: 37,
-    question: "What is the output of: \n\n console.log('5' > 3);",
-    options: ["true", "false", "Error", "undefined"],
-    correct: "true",
-  },
-  {
-    id: 38,
-    question: "Which of the following operators checks for inequality?",
-    options: ["!=", "==", "=", "==="],
-    correct: "!=",
-  },
-  {
-    id: 39,
-    question: "What will be the output of: \n\n console.log(4 + 2 * 3);",
-    options: ["10", "14", "18", "12"],
-    correct: "10",
-  },
-  {
-    id: 40,
-    question: "What is the output of: \n\n console.log(1 || 0);",
-    options: ["1", "0", "undefined", "null"],
-    correct: "1",
+    question: "What is the value of the expression: \n\n 5 ** 2 - 12 // 4 + 3?",
+    options: ["27", "23", "26", "29"],
+    correct: "26",
   },
 ];
 
-// Creating Questions
+
 let remainingQuestion = [...quizQuestions];
 // console.log(remainingQuestion);
 
